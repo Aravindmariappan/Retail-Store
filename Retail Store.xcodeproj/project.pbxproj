@@ -12,6 +12,7 @@
 		F214F3E81FB3535B00621F2A /* CategoryListingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F214F3E71FB3535B00621F2A /* CategoryListingViewModel.m */; };
 		F214F3F11FB35A8900621F2A /* CategoryListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F214F3EF1FB35A8900621F2A /* CategoryListingTableViewCell.m */; };
 		F214F3F21FB35A8900621F2A /* CategoryListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F214F3F01FB35A8900621F2A /* CategoryListingTableViewCell.xib */; };
+		F214F3F51FB37D5E00621F2A /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F214F3F41FB37D5E00621F2A /* ItemDetailViewController.m */; };
 		F2260B6A1FB1E03700CEB810 /* ItemListingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2260B691FB1E03700CEB810 /* ItemListingViewModel.m */; };
 		F2260B6D1FB1E94400CEB810 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2260B6C1FB1E94400CEB810 /* DatabaseManager.m */; };
 		F25354A21FB2C8D300660E71 /* ItemListingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F25354A01FB2C8D300660E71 /* ItemListingCollectionViewCell.m */; };
@@ -49,6 +50,8 @@
 		F214F3EE1FB35A8900621F2A /* CategoryListingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryListingTableViewCell.h; sourceTree = "<group>"; };
 		F214F3EF1FB35A8900621F2A /* CategoryListingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryListingTableViewCell.m; sourceTree = "<group>"; };
 		F214F3F01FB35A8900621F2A /* CategoryListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListingTableViewCell.xib; sourceTree = "<group>"; };
+		F214F3F31FB37D5E00621F2A /* ItemDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		F214F3F41FB37D5E00621F2A /* ItemDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		F2260B681FB1E03700CEB810 /* ItemListingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListingViewModel.h; sourceTree = "<group>"; };
 		F2260B691FB1E03700CEB810 /* ItemListingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListingViewModel.m; sourceTree = "<group>"; };
 		F2260B6B1FB1E94400CEB810 /* DatabaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = DatabaseManager/DatabaseManager.h; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				F26EC2061FB1DA08009BDAC9 /* ItemListViewController.m */,
 				F214F3E01FB34B7F00621F2A /* CategoriesViewController.h */,
 				F214F3E11FB34B7F00621F2A /* CategoriesViewController.m */,
+				F214F3F31FB37D5E00621F2A /* ItemDetailViewController.h */,
+				F214F3F41FB37D5E00621F2A /* ItemDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			files = (
 				F26EC2071FB1DA08009BDAC9 /* ItemListViewController.m in Sources */,
 				F214F3E81FB3535B00621F2A /* CategoryListingViewModel.m in Sources */,
+				F214F3F51FB37D5E00621F2A /* ItemDetailViewController.m in Sources */,
 				F25354A71FB2CD0100660E71 /* ItemCellViewModel.m in Sources */,
 				F26EC1D81FB1D4A6009BDAC9 /* AppDelegate.m in Sources */,
 				F214F3E51FB350CE00621F2A /* CategoryCellViewModel.m in Sources */,

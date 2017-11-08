@@ -9,6 +9,7 @@
 #import "ItemListViewController.h"
 #import "ItemListingViewModel.h"
 #import "ItemListingCollectionViewCell.h"
+#import "ItemDetailViewController.h"
 
 static CGFloat const itemCellHeight = 220.0;
 
@@ -44,6 +45,7 @@ static CGFloat const itemCellHeight = 220.0;
     UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] init];
     [backBarButtonItem setTitle:@" "];
     [self.navigationItem setBackBarButtonItem:backBarButtonItem];
+    [self.navigationItem setTitle:self.itemListingViewModel.navTitle];
 }
 
 #pragma mark - View Config
@@ -75,5 +77,12 @@ static CGFloat const itemCellHeight = 220.0;
 
 #pragma mark - Collection View Delegate
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ItemCellViewModel *cellViewModel = [self.itemListingViewModel cellViewModelAtIndex:indexPath.row];
+    
+    ItemDetailViewController *itemDetailVC = (ItemDetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:[ItemDetailViewController itemDetailVCStoryBoardIdentifier]];
+    [itemDetailVC configureWithViewModel:cellViewModel];
+    [self.navigationController pushViewController:itemDetailVC animated:YES];
+}
 
 @end
