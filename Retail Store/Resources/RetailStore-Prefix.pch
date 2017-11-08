@@ -1,0 +1,18 @@
+//
+//  RetailStore-Prefix.pch
+//  Retail Store
+//
+//  Created by Aravind on 07/11/17.
+//  Copyright © 2017 Aravind. All rights reserved.
+//
+
+#ifndef RetailStore_Prefix_pch
+#define RetailStore_Prefix_pch
+
+#import "ApiConstants.h"
+#import "DatabaseManager.h"
+#import "NetworkManager.h"
+#import "SampleInputs.h"
+#import "AppConstants.h"
+
+#endif /* RetailStore_Prefix_pch */
