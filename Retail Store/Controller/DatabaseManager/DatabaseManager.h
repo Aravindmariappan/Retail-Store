@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Category+CoreDataClass.h"
+#import "Item+CoreDataClass.h"
+#import "CartItem+CoreDataClass.h"
 
 @interface DatabaseManager : NSObject
 
@@ -23,8 +26,12 @@
 - (NSArray *)storeCategoriesDictArray:(NSArray *)categoriesDictArray;
 - (NSArray *)storeItemsDictArray:(NSArray *)itemsDictArray withCompletionBlock:(void(^)(NSArray *items))completion;
 
-#pragma mark - Get
+#pragma mark - Fetch From DB
 
 - (NSArray *)getAllCatagories;
+
+#pragma mark - CartItem
+
+- (CartItem *)insertCartItemForItem:(Item *)item ;
 
 @end

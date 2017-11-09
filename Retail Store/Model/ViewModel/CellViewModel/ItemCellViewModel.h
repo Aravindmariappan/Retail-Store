@@ -11,6 +11,8 @@
 
 @interface ItemCellViewModel : NSObject
 
+@property (readonly) Item *dispalyedItem;
+
 @property (readonly) NSString *displayedItemTitle;
 @property (readonly) NSString *displayedItemPrice;
 @property (readonly) NSString *displayedItemImageName;

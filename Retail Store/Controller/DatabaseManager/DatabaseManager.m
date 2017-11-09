@@ -7,8 +7,6 @@
 //
 
 #import "DatabaseManager.h"
-#import "Category+CoreDataClass.h"
-#import "Item+CoreDataClass.h"
 
 @implementation DatabaseManager
 
@@ -182,4 +180,37 @@ static DatabaseManager *sharedInstance = nil;
     return item;
 }
 
+#pragma mark - CartItem
+
+- (CartItem *)insertCartItemForItem:(Item *)item {
+    CartItem *cartItem = [self getCartItemForItem:item];
+    if (cartItem == nil) {
+        cartItem = [self insertNewCartItemForItem:item];
+    }
+    else {
+        cartItem.quantity += 1;
+        cartItem.totalPrice += item.itemPrice;
+    }
+    [self saveContext];
+    
+    return cartItem;
+}
+
+- (CartItem *)getCartItemForItem:(Item *)item {
+    NSFetchRequest *fetchRequest = [CartItem fetchRequest];
+    NSPredicate *itemIDPredicate = [NSPredicate predicateWithFormat:@"addedItem.itemID = %f", item.itemID];
+    [fetchRequest setPredicate:itemIDPredicate];
+    NSArray *cartItems = [self.mainContext executeFetchRequest:fetchRequest error:nil];
+    
+    return [cartItems firstObject];
+}
+
+- (CartItem *)insertNewCartItemForItem:(Item *)item {
+    CartItem *newCartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartItem" inManagedObjectContext:self.persistentContainer.viewContext];
+    newCartItem.quantity += 1;
+    newCartItem.addedItem = item;
+    newCartItem.totalPrice = item.itemPrice;
+    
+    return newCartItem;
+}
 @end

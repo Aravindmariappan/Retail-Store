@@ -55,9 +55,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Cl0-cm-1GY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q4r-yD-oDw">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Q4r-yD-oDw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="PRo-ak-dzB" kind="relationship" relationship="viewControllers" id="WqR-q9-wqR"/>
@@ -73,7 +77,10 @@
         <scene sceneID="DJh-dQ-OkT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PRo-ak-dzB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Products" id="wEs-PE-XnT"/>
+                    <tabBarItem key="tabBarItem" title="All Products" image="TabBarAllItemsUnselected" selectedImage="TabBarAllItemsSelected" id="wEs-PE-XnT">
+                        <color key="badgeColor" red="0.90980392160000001" green="0.0" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2G9-bi-u2Z">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -93,17 +100,17 @@
             </objects>
             <point key="canvasLocation" x="-1161" y="-125"/>
         </scene>
-        <!--View Controller-->
+        <!--Shopping Cart-->
         <scene sceneID="JUS-dy-H9a">
             <objects>
-                <viewController id="T5F-wI-bgD" sceneMemberID="viewController">
+                <viewController id="T5F-wI-bgD" customClass="ShoppingCartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EbV-En-gEL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wmm-Z8-VxH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mDZ-Ky-2r6"/>
+                    <navigationItem key="navigationItem" title="Shopping Cart" id="mDZ-Ky-2r6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yy-X5-Dys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -251,13 +258,18 @@
         <scene sceneID="8Ws-gh-Tt6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FFD-LZ-60J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" id="6ad-6V-I96"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="TabBarShopUnselected" selectedImage="TabBarShopSelected" id="6ad-6V-I96">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5ce-rP-vxW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.0" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -272,11 +284,15 @@
         <scene sceneID="lCm-LP-g4d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RFZ-4r-YfU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cart" id="x8R-su-Tpm"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="TabBarCartUnselected" selectedImage="TabBarCartSelected" id="x8R-su-Tpm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hWn-Ou-Ra9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -288,7 +304,15 @@
             <point key="canvasLocation" x="-1163.2" y="-845.57721139430294"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TabBarAllItemsSelected" width="22" height="22"/>
+        <image name="TabBarAllItemsUnselected" width="22" height="22"/>
+        <image name="TabBarCartSelected" width="22" height="22"/>
+        <image name="TabBarCartUnselected" width="22" height="22"/>
+        <image name="TabBarShopSelected" width="22" height="22"/>
+        <image name="TabBarShopUnselected" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWj-KH-77v"/>
+        <segue reference="QgV-3M-dx6"/>
     </inferredMetricsTieBreakers>
 </document>

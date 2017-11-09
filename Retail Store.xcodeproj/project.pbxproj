@@ -27,6 +27,7 @@
 		F26EC1E91FB1D4A6009BDAC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EC1E81FB1D4A6009BDAC9 /* main.m */; };
 		F26EC1F31FB1D4A6009BDAC9 /* Retail_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EC1F21FB1D4A6009BDAC9 /* Retail_StoreTests.m */; };
 		F26EC2071FB1DA08009BDAC9 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EC2061FB1DA08009BDAC9 /* ItemListViewController.m */; };
+		F295C2D41FB3F46000918F7D /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F295C2D31FB3F46000918F7D /* ShoppingCartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		F26EC1F41FB1D4A6009BDAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F26EC2051FB1DA08009BDAC9 /* ItemListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		F26EC2061FB1DA08009BDAC9 /* ItemListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		F295C2D21FB3F46000918F7D /* ShoppingCartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
+		F295C2D31FB3F46000918F7D /* ShoppingCartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
 		F2F350651FB1F01E0065AA96 /* RetailStore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RetailStore-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +233,8 @@
 				F214F3E11FB34B7F00621F2A /* CategoriesViewController.m */,
 				F214F3F31FB37D5E00621F2A /* ItemDetailViewController.h */,
 				F214F3F41FB37D5E00621F2A /* ItemDetailViewController.m */,
+				F295C2D21FB3F46000918F7D /* ShoppingCartViewController.h */,
+				F295C2D31FB3F46000918F7D /* ShoppingCartViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				F26EC2071FB1DA08009BDAC9 /* ItemListViewController.m in Sources */,
 				F214F3E81FB3535B00621F2A /* CategoryListingViewModel.m in Sources */,
 				F214F3F51FB37D5E00621F2A /* ItemDetailViewController.m in Sources */,
+				F295C2D41FB3F46000918F7D /* ShoppingCartViewController.m in Sources */,
 				F25354A71FB2CD0100660E71 /* ItemCellViewModel.m in Sources */,
 				F26EC1D81FB1D4A6009BDAC9 /* AppDelegate.m in Sources */,
 				F214F3E51FB350CE00621F2A /* CategoryCellViewModel.m in Sources */,

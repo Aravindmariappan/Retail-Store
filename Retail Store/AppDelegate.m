@@ -27,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[NetworkManager sharedInstance] fetchAllCategories];
+    [self customViewUpdate];
     return YES;
 }
 
@@ -60,5 +61,6 @@
 
 #pragma mark - Initial Load
 
-
+- (void)customViewUpdate {
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : kAppRedColor } forState:UIControlStateSelected];}
 @end
