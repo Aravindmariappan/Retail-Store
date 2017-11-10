@@ -43,12 +43,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Jnc-Kb-kV4" id="Tlj-om-5sK"/>
-                        <segue destination="OZ2-Gx-Psu" kind="show" id="y9z-Xv-9LP"/>
+                        <segue destination="OZ2-Gx-Psu" kind="show" identifier="ShowDetail" id="y9z-Xv-9LP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="-125"/>
+            <point key="canvasLocation" x="-402" y="37"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="c1O-eE-0XF">
@@ -103,7 +103,7 @@
         <!--Shopping Cart-->
         <scene sceneID="JUS-dy-H9a">
             <objects>
-                <viewController id="T5F-wI-bgD" customClass="ShoppingCartViewController" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="T5F-wI-bgD" customClass="ShoppingCartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EbV-En-gEL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,6 +390,6 @@
         <image name="TabBarShopUnselected" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QgV-3M-dx6"/>
+        <segue reference="RWj-KH-77v"/>
     </inferredMetricsTieBreakers>
 </document>
