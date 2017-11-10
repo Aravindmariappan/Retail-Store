@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
+#define kFailureMessage @"Test Case Failed"
+
 @interface Retail_StoreTests : XCTestCase
 
 @end
@@ -24,16 +26,18 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testFetchAllCategories {
+    BOOL categoriesFetched = [[NetworkManager sharedInstance] fetchAllCategories];
+    XCTAssert(categoriesFetched,kFailureMessage);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+- (void)testFetchAllItems {
+    __block NSInteger testItemCount = SampleInputItems.count;
+    [[NetworkManager sharedInstance] fetchAllItemsWithCompletionBlock:^(NSArray *items) {
+        BOOL itemCountEqual = (items.count == testItemCount);
+        XCTAssert(itemCountEqual,kFailureMessage);
     }];
 }
+
 
 @end

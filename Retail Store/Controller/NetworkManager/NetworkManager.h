@@ -12,7 +12,7 @@
 
 +(NetworkManager *)sharedInstance;
 
-- (void)fetchAllCategories;
+- (BOOL)fetchAllCategories;
 - (void)fetchAllItemsWithCompletionBlock:(void(^)(NSArray *items))completion;
 
 @end

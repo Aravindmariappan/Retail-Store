@@ -29,9 +29,15 @@ static NetworkManager *sharedInstance = nil;
 /**
  Fetch All Category Details and Store in DB
  */
-- (void)fetchAllCategories {
+- (BOOL)fetchAllCategories {
     NSArray *allCategories = SampleInputCategories; //Fetch Network Data in Real time Scenario
     [[DatabaseManager sharedInstance] storeCategoriesDictArray:allCategories];
+    if ([allCategories count] > 0) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 - (void)fetchAllItemsWithCompletionBlock:(void(^)(NSArray *items))completion {

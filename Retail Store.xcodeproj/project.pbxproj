@@ -31,6 +31,7 @@
 		F26F71A81FB515C100981AD0 /* CartItemCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F71A71FB515C100981AD0 /* CartItemCellViewModel.m */; };
 		F26F71AC1FB51D4C00981AD0 /* CartItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F71AA1FB51D4C00981AD0 /* CartItemTableViewCell.m */; };
 		F26F71AD1FB51D4C00981AD0 /* CartItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26F71AB1FB51D4C00981AD0 /* CartItemTableViewCell.xib */; };
+		F26F71AE1FB5497A00981AD0 /* Retail_Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F26EC1DF1FB1D4A6009BDAC9 /* Retail_Store.xcdatamodeld */; };
 		F295C2D41FB3F46000918F7D /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F295C2D31FB3F46000918F7D /* ShoppingCartViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -388,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26F71AE1FB5497A00981AD0 /* Retail_Store.xcdatamodeld in Sources */,
 				F26EC1F31FB1D4A6009BDAC9 /* Retail_StoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
