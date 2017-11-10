@@ -49,6 +49,7 @@
     Item *item = [self.contentArray objectAtIndex:index];
     ItemCellViewModel *cellViewModel = [[ItemCellViewModel alloc] init];
     [cellViewModel configureWithItem:item];
+    
     return cellViewModel;
 }
 

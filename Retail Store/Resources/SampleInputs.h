@@ -9,6 +9,8 @@
 #ifndef SampleInputs_h
 #define SampleInputs_h
 
+#define DefaultCart @{kCartID:@"123456789"}
+
 #define CategoryElectronics @{kCategoryName:@"Electronics", kCategoryDecription:@"Electronic Goods", kCategoryID:@"111111"}
 #define CategoryFurniture @{kCategoryName:@"Furniture",  kCategoryDecription:@"Furniture Goods",  kCategoryID:@"222222"}
 

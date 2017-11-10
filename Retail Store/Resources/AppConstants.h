@@ -11,6 +11,8 @@
 
 #define kAppRedColor [UIColor colorWithRed:232.0/255.0 green:0 blue:80.0/232.0 alpha:1]
 
-#define kItemAddedToCartNotification @"ItemAddedToCartNotification"
+#define kCartUpdatedNotification @"ItemAddedToCartNotification"
+
+#define kShoppingCartBadgeTabItemTag 1000
 
 #endif /* AppConstants_h */

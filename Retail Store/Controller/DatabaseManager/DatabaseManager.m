@@ -8,6 +8,12 @@
 
 #import "DatabaseManager.h"
 
+@interface DatabaseManager()
+
+@property (readwrite, nonatomic) Cart *defaultCart;
+
+@end
+
 @implementation DatabaseManager
 
 static DatabaseManager *sharedInstance = nil;
@@ -72,7 +78,62 @@ static DatabaseManager *sharedInstance = nil;
     }
 }
 
-#pragma mark - Store Data
+#pragma mark - Cart
+
+- (Cart *)defaultCart {
+    if (_defaultCart == nil) {
+        NSNumber *cartID = [DefaultCart valueForKey:kCartID];
+        _defaultCart = [self fetchCartWithCartID:cartID.intValue];
+        if (_defaultCart == nil) {
+            _defaultCart = [self insertDefaultCartFromDict:DefaultCart];
+            [self saveContext];
+        }
+    }
+    
+    return _defaultCart;
+}
+
+- (Cart *)fetchCartWithCartID:(int)cartID {
+    NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"cartID = %d",cartID];
+    NSFetchRequest *fetchRequest = [Cart fetchRequest];
+    [fetchRequest setPredicate:idPredicate];
+    NSArray *cartPresent = [self.mainContext executeFetchRequest:fetchRequest error:nil];
+    Cart *fetchedCart = [cartPresent firstObject];
+    
+    return fetchedCart;
+}
+
+- (Cart *)insertDefaultCartFromDict:(NSDictionary *)cartDict {
+    Cart *defaultCart = [NSEntityDescription insertNewObjectForEntityForName:@"Cart" inManagedObjectContext:self.persistentContainer.viewContext];
+    NSNumber *cartID = [cartDict valueForKey:kCartID];
+    [defaultCart setCartID:cartID.intValue];
+    
+    return defaultCart;
+}
+
+- (Cart *)addCartItem:(CartItem *)cartItem toCart:(Cart *)cart {
+    [cart addCartItemsObject:cartItem];
+    cart.itemCount += 1;
+    cart.totalPrice += cartItem.price;
+    
+    return cart;
+}
+
+- (Cart *)insertItem:(Item *)item toCart:(Cart *)cart {
+    CartItem *cartItem = [self insertCartItemForItem:item];
+    cart = [self addCartItem:cartItem toCart:cart];
+    [self saveContext];
+
+    return cart;
+}
+
+- (void)removeCartItem:(CartItem *)cartItem fromCart:(Cart *)cart{
+    cart.itemCount -= cartItem.quantity;
+    cart.totalPrice -= (cartItem.quantity * cartItem.price);
+    [cart removeCartItemsObject:cartItem];
+    [self.mainContext deleteObject:cartItem];
+    [self saveContext];
+}
 
 #pragma mark - Category
 
@@ -189,9 +250,7 @@ static DatabaseManager *sharedInstance = nil;
     }
     else {
         cartItem.quantity += 1;
-        cartItem.totalPrice += item.itemPrice;
     }
-    [self saveContext];
     
     return cartItem;
 }
@@ -207,10 +266,10 @@ static DatabaseManager *sharedInstance = nil;
 
 - (CartItem *)insertNewCartItemForItem:(Item *)item {
     CartItem *newCartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartItem" inManagedObjectContext:self.persistentContainer.viewContext];
-    newCartItem.quantity += 1;
     newCartItem.addedItem = item;
-    newCartItem.totalPrice = item.itemPrice;
-    
+    newCartItem.price = item.itemPrice;
+    newCartItem.quantity += 1;
+
     return newCartItem;
 }
 @end

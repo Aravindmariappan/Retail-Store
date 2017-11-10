@@ -7,7 +7,7 @@
 //
 
 #import "ItemDetailViewController.h"
-#import "CartItem+CoreDataClass.h"
+#import "Cart+CoreDataClass.h"
 
 @interface ItemDetailViewController ()
 
@@ -49,9 +49,10 @@
 
 - (IBAction)addToCartButtonTapped:(id)sender {
     Item *displayedItem = self.viewModel.dispalyedItem;
-    CartItem *cartItem = [[DatabaseManager sharedInstance] insertCartItemForItem:displayedItem];
-    if (cartItem != nil) {
-        [self postItemAddedNotification:cartItem];
+    Cart *defaultCart = [DatabaseManager sharedInstance].defaultCart;
+    defaultCart = [[DatabaseManager sharedInstance] insertItem:displayedItem toCart:defaultCart];
+    if (defaultCart != nil) {
+        [self postItemAddedNotification:defaultCart];
         [self showAlertWithSuccessMessage:@"You have successfully added the item to the cart"];
     }
 }
@@ -63,8 +64,8 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)postItemAddedNotification:(CartItem *)cartItem {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kItemAddedToCartNotification object:cartItem];
+- (void)postItemAddedNotification:(Cart *)cart {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCartUpdatedNotification object:cart];
 }
 
 @end

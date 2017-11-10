@@ -9,6 +9,8 @@
 #ifndef ApiConstants_h
 #define ApiConstants_h
 
+#define kCartID @"cartID"
+
 #define kCategoryDecription @"categoryDescription"
 #define kCategoryID @"categoryID"
 #define kCategoryName @"categoryName"

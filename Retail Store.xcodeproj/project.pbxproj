@@ -27,6 +27,10 @@
 		F26EC1E91FB1D4A6009BDAC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EC1E81FB1D4A6009BDAC9 /* main.m */; };
 		F26EC1F31FB1D4A6009BDAC9 /* Retail_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EC1F21FB1D4A6009BDAC9 /* Retail_StoreTests.m */; };
 		F26EC2071FB1DA08009BDAC9 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EC2061FB1DA08009BDAC9 /* ItemListViewController.m */; };
+		F26F71A51FB5154900981AD0 /* CartItemListingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F71A41FB5154900981AD0 /* CartItemListingViewModel.m */; };
+		F26F71A81FB515C100981AD0 /* CartItemCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F71A71FB515C100981AD0 /* CartItemCellViewModel.m */; };
+		F26F71AC1FB51D4C00981AD0 /* CartItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F71AA1FB51D4C00981AD0 /* CartItemTableViewCell.m */; };
+		F26F71AD1FB51D4C00981AD0 /* CartItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26F71AB1FB51D4C00981AD0 /* CartItemTableViewCell.xib */; };
 		F295C2D41FB3F46000918F7D /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F295C2D31FB3F46000918F7D /* ShoppingCartViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,13 @@
 		F26EC1F41FB1D4A6009BDAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F26EC2051FB1DA08009BDAC9 /* ItemListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		F26EC2061FB1DA08009BDAC9 /* ItemListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		F26F71A31FB5154900981AD0 /* CartItemListingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartItemListingViewModel.h; sourceTree = "<group>"; };
+		F26F71A41FB5154900981AD0 /* CartItemListingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartItemListingViewModel.m; sourceTree = "<group>"; };
+		F26F71A61FB515C100981AD0 /* CartItemCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartItemCellViewModel.h; sourceTree = "<group>"; };
+		F26F71A71FB515C100981AD0 /* CartItemCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartItemCellViewModel.m; sourceTree = "<group>"; };
+		F26F71A91FB51D4C00981AD0 /* CartItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartItemTableViewCell.h; sourceTree = "<group>"; };
+		F26F71AA1FB51D4C00981AD0 /* CartItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartItemTableViewCell.m; sourceTree = "<group>"; };
+		F26F71AB1FB51D4C00981AD0 /* CartItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemTableViewCell.xib; sourceTree = "<group>"; };
 		F295C2D21FB3F46000918F7D /* ShoppingCartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
 		F295C2D31FB3F46000918F7D /* ShoppingCartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
 		F2F350651FB1F01E0065AA96 /* RetailStore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RetailStore-Prefix.pch"; sourceTree = "<group>"; };
@@ -110,6 +121,8 @@
 				F2260B691FB1E03700CEB810 /* ItemListingViewModel.m */,
 				F214F3E61FB3535B00621F2A /* CategoryListingViewModel.h */,
 				F214F3E71FB3535B00621F2A /* CategoryListingViewModel.m */,
+				F26F71A31FB5154900981AD0 /* CartItemListingViewModel.h */,
+				F26F71A41FB5154900981AD0 /* CartItemListingViewModel.m */,
 				F25354A41FB2CC7300660E71 /* CellViewModel */,
 			);
 			path = ViewModel;
@@ -124,6 +137,9 @@
 				F214F3EE1FB35A8900621F2A /* CategoryListingTableViewCell.h */,
 				F214F3EF1FB35A8900621F2A /* CategoryListingTableViewCell.m */,
 				F214F3F01FB35A8900621F2A /* CategoryListingTableViewCell.xib */,
+				F26F71A91FB51D4C00981AD0 /* CartItemTableViewCell.h */,
+				F26F71AA1FB51D4C00981AD0 /* CartItemTableViewCell.m */,
+				F26F71AB1FB51D4C00981AD0 /* CartItemTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -135,6 +151,8 @@
 				F25354A61FB2CD0100660E71 /* ItemCellViewModel.m */,
 				F214F3E31FB350CE00621F2A /* CategoryCellViewModel.h */,
 				F214F3E41FB350CE00621F2A /* CategoryCellViewModel.m */,
+				F26F71A61FB515C100981AD0 /* CartItemCellViewModel.h */,
+				F26F71A71FB515C100981AD0 /* CartItemCellViewModel.m */,
 			);
 			path = CellViewModel;
 			sourceTree = "<group>";
@@ -326,6 +344,7 @@
 				F26EC1E61FB1D4A6009BDAC9 /* LaunchScreen.storyboard in Resources */,
 				F26EC1E31FB1D4A6009BDAC9 /* Assets.xcassets in Resources */,
 				F25354A31FB2C8D300660E71 /* ItemListingCollectionViewCell.xib in Resources */,
+				F26F71AD1FB51D4C00981AD0 /* CartItemTableViewCell.xib in Resources */,
 				F26EC1DE1FB1D4A6009BDAC9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,10 +363,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26F71AC1FB51D4C00981AD0 /* CartItemTableViewCell.m in Sources */,
 				F26EC2071FB1DA08009BDAC9 /* ItemListViewController.m in Sources */,
 				F214F3E81FB3535B00621F2A /* CategoryListingViewModel.m in Sources */,
 				F214F3F51FB37D5E00621F2A /* ItemDetailViewController.m in Sources */,
 				F295C2D41FB3F46000918F7D /* ShoppingCartViewController.m in Sources */,
+				F26F71A51FB5154900981AD0 /* CartItemListingViewModel.m in Sources */,
 				F25354A71FB2CD0100660E71 /* ItemCellViewModel.m in Sources */,
 				F26EC1D81FB1D4A6009BDAC9 /* AppDelegate.m in Sources */,
 				F214F3E51FB350CE00621F2A /* CategoryCellViewModel.m in Sources */,
@@ -355,6 +376,7 @@
 				F26EC1E91FB1D4A6009BDAC9 /* main.m in Sources */,
 				F26EC1E11FB1D4A6009BDAC9 /* Retail_Store.xcdatamodeld in Sources */,
 				F214F3F11FB35A8900621F2A /* CategoryListingTableViewCell.m in Sources */,
+				F26F71A81FB515C100981AD0 /* CartItemCellViewModel.m in Sources */,
 				F2260B6D1FB1E94400CEB810 /* DatabaseManager.m in Sources */,
 				F264777F1FB3142100AF1F84 /* NetworkManager.m in Sources */,
 				F214F3E21FB34B7F00621F2A /* CategoriesViewController.m in Sources */,

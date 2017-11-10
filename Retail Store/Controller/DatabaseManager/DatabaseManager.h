@@ -11,6 +11,7 @@
 #import "Category+CoreDataClass.h"
 #import "Item+CoreDataClass.h"
 #import "CartItem+CoreDataClass.h"
+#import "Cart+CoreDataClass.h"
 
 @interface DatabaseManager : NSObject
 
@@ -18,6 +19,8 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 @property (readonly, strong) NSManagedObjectContext *mainContext;
+
+@property (readonly) Cart *defaultCart;
 
 - (void)saveContext;
 
@@ -32,6 +35,7 @@
 
 #pragma mark - CartItem
 
-- (CartItem *)insertCartItemForItem:(Item *)item ;
+- (Cart *)insertItem:(Item *)item toCart:(Cart *)cart;
+- (void)removeCartItem:(CartItem *)cartItem fromCart:(Cart *)cart;
 
 @end
