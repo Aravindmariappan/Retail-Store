@@ -21,8 +21,6 @@
 
 - (void)configureWithCartItem:(CartItem *)cartItem {
     [super configureWithItem:cartItem.addedItem];
-    NSString *itemPrice = [NSString stringWithFormat:@"₹ %.2d",cartItem.price*cartItem.quantity];
-    self.displayedItemPrice = itemPrice;
     self.displayedItemQuantity = [NSString stringWithFormat:@"Quantity : %d",cartItem.quantity];
 }
 

@@ -37,10 +37,7 @@ static CGFloat const itemCellHeight = 220.0;
     [self configureCollectionView:self.collectionView];
     //Load All Items Only When No Data Available
     if(self.itemListingViewModel == nil) {
-        [[NetworkManager sharedInstance] fetchAllItemsWithCompletionBlock:^(NSArray *items) {
-            self.itemListingViewModel = [[ItemListingViewModel alloc] initWithAllItems:items];
-            [self.collectionView reloadData];
-        }];
+        self.itemListingViewModel = [[ItemListingViewModel alloc] initWithListingType:ItemListingTypeAll];
     }
     UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] init];
     [backBarButtonItem setTitle:@" "];
@@ -62,7 +59,7 @@ static CGFloat const itemCellHeight = 220.0;
 #pragma mark - Collection View Data Source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger itemsCount = [self.itemListingViewModel.contentArray count];
+    NSInteger itemsCount = [self.itemListingViewModel getItemsCount];
 
     return itemsCount;
 }
@@ -83,6 +80,38 @@ static CGFloat const itemCellHeight = 220.0;
     ItemDetailViewController *itemDetailVC = (ItemDetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:[ItemDetailViewController itemDetailVCStoryBoardIdentifier]];
     [itemDetailVC configureWithViewModel:cellViewModel];
     [self.navigationController pushViewController:itemDetailVC animated:YES];
+}
+
+#pragma mark - Configure Actionsheet
+
+- (IBAction)filterButtonTapped:(id)sender {
+    [self showActionSheet];
+}
+
+- (void)showActionSheet {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Furniture" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.itemListingViewModel filterArrayBasedOnListingType:[self typeForCategoryString:@"Furniture"]];
+        [self.collectionView reloadData];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Electronics" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.itemListingViewModel filterArrayBasedOnListingType:[self typeForCategoryString:@"Electronics"]];
+        [self.collectionView reloadData];
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (ItemListingType)typeForCategoryString:(NSString *)categoryString {
+    
+    if ([categoryString isEqualToString:@"Furniture"]) {
+        return ItemListingTypeFurniture;
+    }
+    else if ([categoryString isEqualToString:@"Electronics"]) {
+        return ItemListingTypeElectronics;
+    }
+    else {
+        return ItemListingTypeAll;
+    }
 }
 
 @end

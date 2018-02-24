@@ -11,10 +11,11 @@
 
 @interface ItemListingViewModel()
 
-@property Category *category;
-@property  (readwrite) NSMutableArray *contentArray;
+@property  (readwrite) NSArray *contentArray;
+@property  (readwrite) NSMutableArray *originalArray;
+@property (readwrite) NSMutableArray *categoriesList;
 @property (nonatomic, readwrite) NSString *navTitle;
-@property BOOL allItemsDisplayed;
+@property (readwrite) Category *selectedCategory;
 
 @end
 
@@ -22,28 +23,85 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithCategory:(Category *)category {
-    self = [super init];
-    if (self) {
-        self.category = category;
-        self.contentArray = [category.items.allObjects mutableCopy];
-        self.allItemsDisplayed = NO;
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithAllItems:(NSArray<Item *> *)items {
+- (instancetype)initWithItems:(NSArray<Item *> *)items andTitle:(NSString *)title {
     self = [super init];
     if (self) {
         self.contentArray = [items mutableCopy];
-        self.allItemsDisplayed = YES;
+        self.navTitle = title;
     }
     
     return self;
 }
 
+- (instancetype)initWithListingType:(ItemListingType)listingType {
+    self = [super init];
+    if (self) {
+        self.contentArray = [self initialLoadContentArrayFor:listingType];
+        self.navTitle = [self navigationTitleForListingType:listingType];
+    }
+    
+    return self;
+}
+
+#pragma mark - Configuration Based on Listing Type
+
+- (NSArray *)initialLoadContentArrayFor:(ItemListingType)listingType {
+    self.originalArray = [[[NetworkManager sharedInstance] fetchAllItems] mutableCopy];
+    self.categoriesList = [[[DatabaseManager sharedInstance] getAllCatagories] mutableCopy];
+    NSArray *contentArray;
+    if (listingType == ItemListingTypeAll) {
+        contentArray = self.originalArray.copy;
+    }
+    else {
+        self.selectedCategory = self.categoriesList[listingType];
+        contentArray = [self.selectedCategory.items allObjects];
+    }
+    
+    return contentArray;
+}
+
+- (void)filterArrayBasedOnListingType:(ItemListingType)listingType {
+    self.contentArray = [self filterArray:self.originalArray BasedOn:listingType];
+}
+
+- (NSArray *)filterArray:(NSArray *)inputArray BasedOn:(ItemListingType)listingType {
+    
+    NSString *filterBy = @"";
+    
+    switch (listingType) {
+        
+        case ItemListingTypeFurniture:
+            filterBy = @"Furniture";
+            break;
+
+        case ItemListingTypeElectronics:
+            filterBy = @"Electronics";
+            break;
+
+        default:
+            break;
+    }
+
+    NSMutableArray *retArr = [[NSMutableArray alloc] init];
+    
+    for (Item *item in inputArray) {
+        if ([item.category.categoryName isEqualToString:filterBy]) {
+            [retArr addObject:item];
+        }
+    }
+    
+    return [retArr copy];
+}
+
+- (NSString *)navigationTitleForListingType:(ItemListingType)listingType {
+    return @"ALL PRODUCTS";
+}
+
 #pragma mark - 
+
+- (NSInteger)getItemsCount {
+    return [self.contentArray count];
+}
 
 - (ItemCellViewModel *)cellViewModelAtIndex:(NSInteger)index {
     Item *item = [self.contentArray objectAtIndex:index];
@@ -51,15 +109,6 @@
     [cellViewModel configureWithItem:item];
     
     return cellViewModel;
-}
-
-- (NSString *)navTitle {
-    NSString *navTitle = @"ALL PRODUCTS";
-    if (self.allItemsDisplayed == NO) {
-        navTitle = self.category.categoryName.capitalizedString;
-    }
-    
-    return navTitle;
 }
 
 @end

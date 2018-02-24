@@ -8,16 +8,6 @@
 
 #import "AppDelegate.h"
 
-#define kCategoryDecription @"categoryDescription"
-#define kCategoryID @"categoryID"
-#define kCategoryName @"categoryName"
-
-#define kItemName @"itemName"
-#define kItemDescription @"itemDescription"
-#define kItemID @"itemID"
-#define kItemImageName @"itemImageName"
-#define kItemPrice @"itemPrice"
-
 @interface AppDelegate ()
 
 @end

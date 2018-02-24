@@ -11,14 +11,23 @@
 
 @class  Category,Item;
 
+typedef enum : NSUInteger {
+    ItemListingTypeFurniture = 0,
+    ItemListingTypeElectronics = 1,
+    ItemListingTypeAll,
+} ItemListingType;
+
 @interface ItemListingViewModel : NSObject
 
-- (instancetype)initWithAllItems:(NSArray<Item *> *)items;
-- (instancetype)initWithCategory:(Category *)category;
+- (instancetype)initWithItems:(NSArray<Item *> *)items andTitle:(NSString *)title;
+- (instancetype)initWithListingType:(ItemListingType)listingType;
 
-@property (readonly) NSMutableArray *contentArray;
 @property (readonly) NSString *navTitle;
+@property (readonly) ItemListingType selectedListingType;
 
 - (ItemCellViewModel *)cellViewModelAtIndex:(NSInteger)index;
+- (NSInteger)getItemsCount;
+
+- (void)filterArrayBasedOnListingType:(ItemListingType)listingType;
 
 @end

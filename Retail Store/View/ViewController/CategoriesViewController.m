@@ -66,9 +66,24 @@ static NSString const *detailScreenSegueIdentifier = @"CategoryDetailSegueIdenti
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Category *selectedCategory = [self.viewModel.contentArray objectAtIndex:indexPath.row];
     ItemListViewController *detailViewController = (ItemListViewController *)[self.storyboard instantiateViewControllerWithIdentifier:[ItemListViewController itemListVCIdentifier]];
-    ItemListingViewModel *itemsViewModel = [[ItemListingViewModel alloc] initWithCategory:selectedCategory];
+//    ItemListingViewModel *itemsViewModel = [[ItemListingViewModel alloc] initWithItems:[selectedCategory.items allObjects] andTitle:selectedCategory.categoryName];
+    ItemListingType lsitingType = [self typeForCategory:selectedCategory];
+    ItemListingViewModel *itemsViewModel = [[ItemListingViewModel alloc] initWithListingType:lsitingType];
     [detailViewController configureWithViewModel:itemsViewModel];
     [self.navigationController pushViewController:detailViewController animated:YES];
+}
+
+- (ItemListingType)typeForCategory:(Category *)category {
+    
+    if ([category.categoryName isEqualToString:@"Furniture"]) {
+        return ItemListingTypeFurniture;
+    }
+    else if ([category.categoryName isEqualToString:@"Electronics"]) {
+        return ItemListingTypeElectronics;
+    }
+    else {
+        return ItemListingTypeAll;
+    }
 }
 
 @end

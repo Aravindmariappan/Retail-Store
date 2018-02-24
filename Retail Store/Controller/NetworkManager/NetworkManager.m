@@ -48,5 +48,11 @@ static NetworkManager *sharedInstance = nil;
         }
     }];
 }
+- (NSArray *)fetchAllItems {
+    NSArray *allItems = SampleInputItems;
+    NSArray *fetchedItems = [[DatabaseManager sharedInstance] storeItemsDictArray:allItems withCompletionBlock:nil];
+    
+    return fetchedItems;
+}
 
 @end
